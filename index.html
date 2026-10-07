@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Moorzik</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="theme-init.js"></script>
+</head>
+<body>
+  <div class="app">
+
+    <!-- Центр: піксель-арт простір -->
+    <main class="stage">
+      <section class="screen active" id="home">Тут буде піксель-арт простір</section>
+      <section class="screen" id="blog">Блог</section>
+      <section class="screen" id="design">Дизайн</section>
+      <section class="screen" id="coding">Кодинг</section>
+      <section class="screen" id="life">Життя</section>
+    </main>
+
+    <!-- Лівий верхній кут: кнопка додому (видно лише в розділах) -->
+    <div class="dock dock--tl home-dock">
+      <button id="home-btn" class="icon-btn" aria-label="Додому" title="Домівка">
+        <img class="icon icon--dark"  src="icons/home_fill_D.svg" alt="">
+        <img class="icon icon--light" src="icons/home_fill_L.svg" alt="">
+      </button>
+    </div>
+
+    <!-- Лівий верхній кут: профіль (видно лише вдома) -->
+    <header class="dock dock--tl profile">
+      <div class="name">Ніколаєць<br>Богдан</div>
+      <div class="name">Moorzik<br>Kin</div>
+    </header>
+
+    <!-- Верхній край: новини (видно лише вдома) -->
+    <section class="dock dock--top news">Що нове у боді</section>
+
+    <!-- Лівий край: навігація -->
+    <nav class="dock dock--left sidebar">
+      <ul class="menu">
+        <li data-screen="blog">Блог</li>
+        <li data-screen="design">Дизайн</li>
+        <li data-screen="coding">Кодинг</li>
+        <li data-screen="life">Життя</li>
+      </ul>
+    </nav>
+
+    <!-- Лівий нижній кут: шторка (видно лише в розділах) -->
+    <div class="dock dock--bl drawer" id="drawer">
+      <ul class="menu drawer-list">
+        <li data-screen="blog">Блог</li>
+        <li data-screen="design">Дизайн</li>
+        <li data-screen="coding">Кодинг</li>
+        <li data-screen="life">Життя</li>
+      </ul>
+      <button id="drawer-btn" class="drawer-toggle">
+        <span class="arrow"></span>
+        <span>Мої риси</span>
+      </button>
+    </div>
+
+
+
+    <!-- Правий нижній кут: налаштування -->
+    <div class="dock dock--br settings">
+      <button id="theme-btn" class="icon-btn" aria-label="Змінити тему" title="Тема">
+        <img class="icon icon--dark"  src="icons/moon_fill.svg" alt="">
+        <img class="icon icon--light" src="icons/sun_fill.svg"  alt="">
+      </button>
+      <span>Мова</span>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
