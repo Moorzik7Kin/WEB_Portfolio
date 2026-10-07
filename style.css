@@ -136,7 +136,11 @@ body {
 .news {
   right: 4%;
   width: min(32%, 420px);
-  padding: 10px 24px 16px;
+  padding: 8px 24px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
   text-align: center;
   font-size: 1.4rem;
 }
@@ -210,11 +214,29 @@ body {
 
 .home-dock { display: none; padding: 14px 22px 18px 14px; }
 
-/* ---------- Іконки: окрема картинка для кожної теми ---------- */
-.icon { display: block; width: 30px; height: 30px; }
-.icon--light { display: none; }
-[data-theme="light"] .icon--dark  { display: none; }
-[data-theme="light"] .icon--light { display: block; }
+/* ---------- Одноколірні іконки через маску ---------- */
+.icon {
+  display: block;
+  flex: 0 0 40px;
+  width: 40px;
+  height: 40px;
+  background-color: var(--text);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+}
+.icon--home { -webkit-mask-image: url("icons/home.svg"); mask-image: url("icons/home.svg"); }
+.icon--paper-clip { -webkit-mask-image: url("icons/paper_clip.svg"); mask-image: url("icons/paper_clip.svg"); }
+.icon--newspaper { -webkit-mask-image: url("icons/newspaper.svg"); mask-image: url("icons/newspaper.svg"); }
+.icon--news { -webkit-mask-image: url("icons/News.svg"); mask-image: url("icons/News.svg"); }
+
+.theme-icon { display: block; width: 30px; height: 30px; }
+.theme-icon--light { display: none; }
+[data-theme="light"] .theme-icon--dark  { display: none; }
+[data-theme="light"] .theme-icon--light { display: block; }
 
 .icon-btn {
   background: none;
