@@ -12,6 +12,9 @@ const langCurrent = document.getElementById('lang-current');
 const langCurrentImg = document.getElementById('lang-current-img');
 const langOptions = document.querySelectorAll('.lang-menu .lang-btn');
 
+const LANG_NAMES = { uk: 'Українська', en: 'English', ru: 'русский' };
+
+
 // Як словник у Python: код мови -> файл прапора
 const FLAGS = {
   uk: 'icons/lang_Ukraine.svg',
@@ -19,10 +22,33 @@ const FLAGS = {
   ru: 'icons/lang_rus.svg'
 };
 
+function applyTexts(code) {
+  const dict = TEXTS[code];
+
+  // Звичайні тексти
+  document.querySelectorAll('[data-i18n]').forEach(function (el) {
+    const key = el.dataset.i18n;
+    el.innerHTML = dict[key] || TEXTS.uk[key];
+  });
+
+  // Підказки при наведенні
+  document.querySelectorAll('[data-i18n-title]').forEach(function (el) {
+    const key = el.dataset.i18nTitle;
+    const text = dict[key] || TEXTS.uk[key];
+    el.title = text;
+    el.setAttribute('aria-label', text);
+  });
+
+  // Назва вкладки браузера
+  document.title = dict.pageTitle || TEXTS.uk.pageTitle;
+}
+
 function setLang(code) {
   langCurrentImg.src = FLAGS[code];
+  langCurrentImg.title = LANG_NAMES[code];
   document.documentElement.lang = code;
   localStorage.setItem('lang', code);
+  applyTexts(code);  
 
   // У меню ховаємо ту мову, яка вже вибрана
   langOptions.forEach(function (btn) {

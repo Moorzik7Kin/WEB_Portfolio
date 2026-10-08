@@ -13,7 +13,7 @@
   --bg: #131000;
   --panel: #F1DD8D;
   --accent: #ddb61b;
-  --aim_btn: #f6d43bc3;
+  --aim_btn: #f8d433d0;
   --text: #613000;
 }
 
@@ -189,7 +189,7 @@ body {
   border: 0;
   color: inherit;
   font: inherit;
-  font-size: 1.45rem;
+  font-size: 1.65rem;
   cursor: pointer;
 }
 
@@ -199,10 +199,14 @@ body {
   height: 16px;
   border-left: 3.5px solid currentColor;
   border-top: 3.5px solid currentColor;
-  transform: rotate(45deg);
+  transform-origin: 6px 6px;
+  transform: rotate(225deg);
   transition: transform 0.20s;
+  position: relative;
+  top: 2px;
+  left: 2px;
 }
-.drawer.open .arrow { transform: rotate(225deg); }
+.drawer.open .arrow { transform: rotate(45deg); }
 
 .settings {
   display: flex;
@@ -274,7 +278,7 @@ body {
 .lang-menu {
   display: none;
   position: absolute;
-  bottom: 100%;          /* впритул над панеллю: щілини нема */
+  bottom: 100%;            /* впритул над панеллю: щілини нема */
   right: 21.5px;           /* підкрути, щоб меню стало рівно над прапором */
   flex-direction: column;
   margin-bottom: -10px; 

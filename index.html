@@ -12,61 +12,59 @@
 
     <!-- Центр: піксель-арт простір -->
     <main class="stage">
-      <section class="screen active" id="home">Тут буде піксель-арт простір</section>
-      <section class="screen" id="blog">Блог</section>
-      <section class="screen" id="design">Дизайн</section>
-      <section class="screen" id="coding">Кодинг</section>
-      <section class="screen" id="life">Життя</section>
+      <section class="screen active" id="home" data-i18n="homeHint">Тут буде піксель-арт простір</section>
+      <section class="screen" id="blog" data-i18n="blog">Блог</section>
+      <section class="screen" id="design" data-i18n="design">Дизайн</section>
+      <section class="screen" id="coding" data-i18n="coding">Кодинг</section>
+      <section class="screen" id="life" data-i18n="life">Життя</section>
     </main>
 
     <!-- Лівий верхній кут: кнопка додому (видно лише в розділах) -->
     <div class="dock dock--tl home-dock">
-      <button id="home-btn" class="icon-btn" aria-label="Додому" title="Домівка">
+      <button id="home-btn" class="icon-btn" aria-label="Додому" title="Домівка" data-i18n-title="home">
         <span class="icon icon--home" aria-hidden="true"></span>
       </button>
     </div>
 
     <!-- Лівий верхній кут: профіль (видно лише вдома) -->
     <header class="dock dock--tl profile">
-      <div class="name">Ніколаєць<br>Богдан</div>
-      <div class="name">Moorzik<br>Kin</div>
+      <div class="name" data-i18n="nameReal">Ніколаєць<br>Богдан</div>
+      <div class="name" data-i18n="nameNick">Moorzik<br>Kin</div>
     </header>
 
     <!-- Верхній край: новини (видно лише вдома) -->
     <section class="dock dock--top news">
-      Що нове у боді
+      <span data-i18n="news">Що нове у боді</span>
       <span class="icon icon--news" aria-hidden="true"></span>
     </section>
 
     <!-- Лівий край: навігація -->
     <nav class="dock dock--left sidebar">
       <ul class="menu">
-        <li data-screen="blog">Блог</li>
-        <li data-screen="design">Дизайн</li>
-        <li data-screen="coding">Кодинг</li>
-        <li data-screen="life">Життя</li>
+        <li data-screen="blog" data-i18n="blog">Блог</li>
+        <li data-screen="design" data-i18n="design">Дизайн</li>
+        <li data-screen="coding" data-i18n="coding">Кодинг</li>
+        <li data-screen="life" data-i18n="life">Життя</li>
       </ul>
     </nav>
 
     <!-- Лівий нижній кут: шторка (видно лише в розділах) -->
     <div class="dock dock--bl drawer" id="drawer">
       <ul class="menu drawer-list">
-        <li data-screen="blog">Блог</li>
-        <li data-screen="design">Дизайн</li>
-        <li data-screen="coding">Кодинг</li>
-        <li data-screen="life">Життя</li>
+        <li data-screen="blog" data-i18n="blog">Блог</li>
+        <li data-screen="design" data-i18n="design">Дизайн</li>
+        <li data-screen="coding" data-i18n="coding">Кодинг</li>
+        <li data-screen="life" data-i18n="life">Життя</li>
       </ul>
       <button id="drawer-btn" class="drawer-toggle">
         <span class="arrow"></span>
-        <span>Мої риси</span>
+        <span data-i18n="traits">Мої риси</span>
       </button>
     </div>
 
-
-
     <!-- Правий нижній кут: налаштування -->
     <div class="dock dock--br settings">
-      <button id="theme-btn" class="icon-btn" aria-label="Змінити тему" title="Тема">
+      <button id="theme-btn" class="icon-btn" aria-label="Змінити тему" title="Тема" data-i18n-title="theme">
         <img class="theme-icon theme-icon--dark"  src="icons/moon.svg" alt="">
         <img class="theme-icon theme-icon--light" src="icons/sun.svg"  alt="">
       </button>
@@ -84,6 +82,7 @@
 
   </div>
 
+  <script src="texts.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
