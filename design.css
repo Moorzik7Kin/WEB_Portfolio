@@ -1,0 +1,169 @@
+/* ===== Вікно "Дизайн" (власний стиль розділу) ===== */
+
+/* ---------- Палітра розділу Дизайн ---------- */
+[data-section="design"] {
+  --bg: #0a010e;
+  --panel: #2e0b46;
+  --accent: #692db3;
+  --aim_btn: #905efe26;
+  --text: #e4d5ff;
+}
+[data-theme="light"][data-section="design"] {
+  --bg: #15021e;
+  --panel: #d8c6f7;
+  --accent: #b48ef1;
+  --aim_btn: #b78cf83b;
+  --text: #4c0a79;;
+}
+
+/* Кут справа зверху: ще один варіант панелі-оболонки */
+.dock--tr { top: 0; right: 0; border-bottom-left-radius: var(--radius); }
+.dock--tr::before { --pos: 0 100%; top: 0; left: calc(var(--radius) * -1); }
+.dock--tr::after  { --pos: 0 100%; right: 0; bottom: calc(var(--radius) * -1); }
+
+.dz-label { padding: 16px 40px 18px 44px; font-size: 1.7rem; }
+
+/* Сцена */
+.dz {
+  --slide-w: min(640px, 45vw);
+  --peek: 56px;
+  --arrow-w: 78px;
+  --arrow-h: 102px;
+  --arrow-gap: 30px;
+  --chev-w: 34px;
+
+  align-self: stretch;
+  width: min(1010px, 67vw);
+  padding: 66px 0 90px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 1rem;
+}
+.dz-title { 
+  text-align: center; 
+  font-size: 2.5rem; 
+}
+
+/* Переглядач: усе тримається за головний слайд */
+.dz-viewer { flex: 1; min-height: 0; display: grid; place-items: center; }
+
+.dz-slides { position: relative; width: var(--slide-w); aspect-ratio: 16 / 9; }
+
+.dz-slide { position: absolute; border: 3px solid var(--accent); border-radius: 14px; }
+.dz-slide--main {
+  inset: 0;
+  z-index: 2;
+  background: #bfbfbf;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+}
+.dz-slide--next {
+  top: 15%;
+  bottom: 15%;
+  width: 60%;
+  right: calc(var(--peek) * -1);
+  background: #3a3a3a;
+}
+
+.dz-arrow {
+  position: absolute;
+  top: calc(50% - var(--arrow-h) / 2);
+  width: var(--arrow-w);
+  height: var(--arrow-h);
+  display: grid;
+  place-items: center;
+  background: none;
+  border: 0px solid currentColor;   /* рамка для налагодження: потім можна прибрати */
+  border-radius: 3px;
+  color: inherit;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.2s;
+}
+.dz-arrow--prev { right: calc(100% + var(--arrow-gap)); }
+.dz-arrow--next { left: calc(100% + var(--peek) + var(--arrow-gap)); }
+
+.dz-arrow::before {
+  content: "";
+  width: var(--chev-w);
+  height: calc(var(--chev-w) * 80 / 30);
+  background: currentColor;
+  -webkit-mask: url("icons/chevron.svg") center / 100% 100% no-repeat;
+  mask: url("icons/chevron.svg") center / 100% 100% no-repeat;
+}
+.dz-arrow--next::before { transform: scaleX(-1); }
+
+.dz-arrow:hover:not(:disabled) { transform: scale(1.15); }
+.dz-arrow:disabled { opacity: 0.25; cursor: default; }
+
+
+/* Низ: дата та (i) | опис | посилання */
+.dz-bottom { 
+  display: grid; 
+  grid-template-columns: 110px 1fr 110px; 
+  gap: 20px; 
+  width: calc(var(--slide-w) + 150px); 
+  margin-inline: auto; 
+}
+.dz-desc { 
+  text-align: center; 
+  font-weight: 400; 
+  opacity: 0.85; 
+  line-height: 1.5; 
+}
+
+.dz-meta { position: relative; top: 20px; align-self: end; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.dz-info {
+  width: 43px; 
+  height: 43px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--panel);
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+.dz-date { font-size: 1.08rem; font-weight: 400; opacity: 0.55; }
+
+/* Рівномірний розподіл: 1 кнопка по центру, 2 кнопки по краях */
+.dz-links { position: relative; top: 20px; display: flex; flex-direction: column; justify-content: space-evenly; align-items: center; gap: 12px; }
+.dz-link {
+  display: grid;
+  place-items: center;
+  width: 52px; 
+  height: 52px;
+  border-radius: 12px;
+  color: #fff;
+  text-decoration: none;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.dz-link:hover { transform: scale(1.12); }
+.dz-link--pdf   { background: #7a0019; }
+.dz-link--canva { background: #00a3e0; }
+
+/* Мапа презентацій: вертикальні кружечки справа */
+.dz-map {
+  position: absolute;
+  right: 28px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.dz-dot {
+  width: 14px;
+  height: 14px;
+  border: 0;
+  border-radius: 50%;
+  background: currentColor;
+  color: inherit;
+  opacity: 0.35;
+  cursor: pointer;
+  transition: opacity 0.2s, height 0.2s, border-radius 0.2s;
+}
+.dz-dot:hover { opacity: 0.7; }
+.dz-dot.active {
+  opacity: 1;
+  height: 25px;
+  border-radius: 10px;
+}

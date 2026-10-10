@@ -200,13 +200,13 @@ body {
   border-left: 3.5px solid currentColor;
   border-top: 3.5px solid currentColor;
   transform-origin: 6px 6px;
-  transform: rotate(225deg);
+  transform: rotate(45deg);
   transition: transform 0.20s;
   position: relative;
   top: 2px;
   left: 2px;
 }
-.drawer.open .arrow { transform: rotate(45deg); }
+.drawer.open .arrow { transform: rotate(225deg); }
 
 .settings {
   display: flex;

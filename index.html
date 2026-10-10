@@ -6,6 +6,7 @@
   <title>Moorzik · портфоліо</title>
   <link rel="stylesheet" href="style.css">
   <script src="theme-init.js"></script>
+  <link rel="stylesheet" href="design.css">
 </head>
 <body>
   <div class="app">
@@ -14,7 +15,45 @@
     <main class="stage">
       <section class="screen active" id="home" data-i18n="homeHint">Тут буде піксель-арт простір</section>
       <section class="screen" id="blog" data-i18n="blog">Блог</section>
-      <section class="screen" id="design" data-i18n="design">Дизайн</section>
+
+      <section class="screen" id="design">
+        <div class="dz">
+          <h2 class="dz-title">Назва цієї презентації</h2>
+
+          <div class="dz-viewer">
+            <div class="dz-slides">
+              <div class="dz-slide dz-slide--next"></div>
+              <div class="dz-slide dz-slide--main"></div>
+              <button class="dz-arrow dz-arrow--prev" disabled aria-label="Назад"></button>
+              <button class="dz-arrow dz-arrow--next" aria-label="Далі"></button>
+            </div>
+          </div>
+
+          <div class="dz-bottom">
+            <div class="dz-meta">
+              <button class="dz-info" aria-label="Більше">i</button>
+              <span class="dz-date">дд/мм/рррр</span>
+            </div>
+            <p class="dz-desc">Тут буде короткий переказ стилізації та пояснення умов написання цієї роботи.</p>
+            <div class="dz-links">
+              <a class="dz-link dz-link--pdf" href="#">PDF</a>
+              <a class="dz-link dz-link--canva" href="#">C</a>
+            </div>
+          </div>
+        </div>
+
+        <nav class="dz-map" aria-label="Презентації">
+          <button class="dz-dot active"></button>
+          <button class="dz-dot"></button>
+          <button class="dz-dot"></button>
+          <button class="dz-dot"></button>
+          <button class="dz-dot"></button>
+          <button class="dz-dot"></button>
+        </nav>
+
+        <div class="dock dock--tr dz-label">Дизайн: Презентації</div>
+      </section>
+      
       <section class="screen" id="coding" data-i18n="coding">Кодинг</section>
       <section class="screen" id="life" data-i18n="life">Життя</section>
     </main>

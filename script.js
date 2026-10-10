@@ -95,6 +95,9 @@ function showScreen(id) {
   // Режим розділу: усе, крім "home"
   app.classList.toggle('in-section', id !== 'home');
 
+  // Позначає який розділ зараз відкритий (для його палітри)
+  root.dataset.section = id;
+
   // Згорнути шторку
   drawer.classList.remove('open');
 }
