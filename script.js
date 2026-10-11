@@ -136,7 +136,7 @@ if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
       setTimeout(function () {
         drawerAutoOpenClickBlocked = false;
       }, 250);
-    }, 500);
+    }, 400);
   });
 
   drawerBtn.addEventListener('pointerleave', function () {

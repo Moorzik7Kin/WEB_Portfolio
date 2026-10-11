@@ -3,6 +3,12 @@
 const WORKS = {
 
 // ----|||( Дизайн: Презентації )|||----
+  tema: {
+    design: {
+      uk: 'Дизайн: Презентації',
+      en: 'Design: Presentations'
+            }
+  },
   design: [
     {
       id: 'superconductivity',

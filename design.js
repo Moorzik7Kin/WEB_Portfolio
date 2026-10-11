@@ -7,6 +7,7 @@ let slideIndex = 0;               // який слайд зараз (вліво/
 
 const dz = {
   title:   document.getElementById('dz-title'),
+  label:   document.getElementById('dz-label'),
   main:    document.getElementById('dz-main-img'),
   prevImage: document.getElementById('dz-prev-img'),
   prevBox: document.querySelector('.dz-slide--prev'),
@@ -33,6 +34,7 @@ function renderDesign() {
   const work = designList[workIndex];
   const total = work.slides;
 
+  dz.label.textContent = t(WORKS.tema.design);
   dz.title.textContent = t(work.title);
   dz.desc.textContent = t(work.desc);
   dz.date.textContent = work.date;
