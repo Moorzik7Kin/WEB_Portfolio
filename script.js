@@ -50,6 +50,8 @@ function setLang(code) {
   localStorage.setItem('lang', code);
   applyTexts(code);  
 
+  if (typeof renderDesign === 'function') renderDesign();
+
   // У меню ховаємо ту мову, яка вже вибрана
   langOptions.forEach(function (btn) {
     btn.hidden = (btn.dataset.lang === code);
@@ -121,6 +123,34 @@ themeBtn.addEventListener('click', function () {
   localStorage.setItem('theme', root.dataset.theme);
 });
 
+let drawerOpenTimeout;
+let drawerAutoOpenClickBlocked = false;
+
+if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+  drawerBtn.addEventListener('pointerenter', function () {
+    if (drawer.classList.contains('open')) return;
+
+    drawerOpenTimeout = setTimeout(function () {
+      drawer.classList.add('open');
+      drawerAutoOpenClickBlocked = true;
+      setTimeout(function () {
+        drawerAutoOpenClickBlocked = false;
+      }, 250);
+    }, 500);
+  });
+
+  drawerBtn.addEventListener('pointerleave', function () {
+    clearTimeout(drawerOpenTimeout);
+  });
+}
+
 drawerBtn.addEventListener('click', function () {
+  clearTimeout(drawerOpenTimeout);
+  if (drawer.classList.contains('open') && drawerAutoOpenClickBlocked) return;
   drawer.classList.toggle('open');
+});
+
+drawer.addEventListener('mouseleave', function () {
+  clearTimeout(drawerOpenTimeout);
+  drawer.classList.remove('open');
 });

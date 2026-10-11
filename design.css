@@ -9,7 +9,7 @@
   --text: #e4d5ff;
 }
 [data-theme="light"][data-section="design"] {
-  --bg: #15021e;
+  --bg: #0e0114;
   --panel: #d8c6f7;
   --accent: #b48ef1;
   --aim_btn: #b78cf83b;
@@ -26,15 +26,17 @@
 /* Сцена */
 .dz {
   --slide-w: min(640px, 45vw);
-  --peek: 56px;
-  --arrow-w: 78px;
-  --arrow-h: 102px;
+  --peek: 70px;
+  --arrow-w: 128px;
+  --arrow-h: 142px;
   --arrow-gap: 30px;
+  --arrow-shift: 25px;
   --chev-w: 34px;
 
   align-self: stretch;
   width: min(1010px, 67vw);
-  padding: 66px 0 90px;
+  padding: 76px 0 90px;
+  /* padding: clamp(28px, 5vh, 66px) 0 clamp(90px, 9vh, 120px); */
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -43,6 +45,7 @@
 .dz-title { 
   text-align: center; 
   font-size: 2.5rem; 
+  line-height: 1.05;
 }
 
 /* Переглядач: усе тримається за головний слайд */
@@ -57,13 +60,23 @@
   background: #bfbfbf;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
 }
+.dz-slide--prev {
+  top: 15%;
+  bottom: 15%;
+  width: 60%;
+  opacity: 0.4;
+  left: calc(var(--peek) * -1);
+  background: #3a3a3a;
+}
 .dz-slide--next {
   top: 15%;
   bottom: 15%;
   width: 60%;
+  opacity: 0.4;
   right: calc(var(--peek) * -1);
   background: #3a3a3a;
 }
+.dz-slide img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 11px; }
 
 .dz-arrow {
   position: absolute;
@@ -79,8 +92,8 @@
   cursor: pointer;
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.2s;
 }
-.dz-arrow--prev { right: calc(100% + var(--arrow-gap)); }
-.dz-arrow--next { left: calc(100% + var(--peek) + var(--arrow-gap)); }
+.dz-arrow--prev { right: calc(100% + var(--arrow-gap) + var(--arrow-shift)); }
+.dz-arrow--next { left: calc(100% + var(--peek) + var(--arrow-gap) - var(--arrow-shift)); }
 
 .dz-arrow::before {
   content: "";
@@ -93,7 +106,7 @@
 .dz-arrow--next::before { transform: scaleX(-1); }
 
 .dz-arrow:hover:not(:disabled) { transform: scale(1.15); }
-.dz-arrow:disabled { opacity: 0.25; cursor: default; }
+.dz-arrow:disabled { opacity: 0.15; cursor: default; }
 
 
 /* Низ: дата та (i) | опис | посилання */

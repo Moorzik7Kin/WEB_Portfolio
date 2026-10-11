@@ -16,15 +16,17 @@
       <section class="screen active" id="home" data-i18n="homeHint">Тут буде піксель-арт простір</section>
       <section class="screen" id="blog" data-i18n="blog">Блог</section>
 
+
       <section class="screen" id="design">
         <div class="dz">
-          <h2 class="dz-title">Назва цієї презентації</h2>
+          <h2 class="dz-title" id="dz-title"></h2>
 
           <div class="dz-viewer">
             <div class="dz-slides">
-              <div class="dz-slide dz-slide--next"></div>
-              <div class="dz-slide dz-slide--main"></div>
-              <button class="dz-arrow dz-arrow--prev" disabled aria-label="Назад"></button>
+              <div class="dz-slide dz-slide--prev" hidden><img id="dz-prev-img" alt=""></div>
+              <div class="dz-slide dz-slide--next"><img id="dz-next-img" alt=""></div>
+              <div class="dz-slide dz-slide--main"><img id="dz-main-img" alt=""></div>
+              <button class="dz-arrow dz-arrow--prev" aria-label="Назад"></button>
               <button class="dz-arrow dz-arrow--next" aria-label="Далі"></button>
             </div>
           </div>
@@ -32,24 +34,14 @@
           <div class="dz-bottom">
             <div class="dz-meta">
               <button class="dz-info" aria-label="Більше">i</button>
-              <span class="dz-date">дд/мм/рррр</span>
+              <span class="dz-date" id="dz-date"></span>
             </div>
-            <p class="dz-desc">Тут буде короткий переказ стилізації та пояснення умов написання цієї роботи.</p>
-            <div class="dz-links">
-              <a class="dz-link dz-link--pdf" href="#">PDF</a>
-              <a class="dz-link dz-link--canva" href="#">C</a>
-            </div>
+            <p class="dz-desc" id="dz-desc"></p>
+            <div class="dz-links" id="dz-links"></div>
           </div>
         </div>
 
-        <nav class="dz-map" aria-label="Презентації">
-          <button class="dz-dot active"></button>
-          <button class="dz-dot"></button>
-          <button class="dz-dot"></button>
-          <button class="dz-dot"></button>
-          <button class="dz-dot"></button>
-          <button class="dz-dot"></button>
-        </nav>
+        <nav class="dz-map" id="dz-map" aria-label="Презентації"></nav>
 
         <div class="dock dock--tr dz-label">Дизайн: Презентації</div>
       </section>
@@ -122,6 +114,8 @@
   </div>
 
   <script src="texts.js"></script>
+  <script src="works.js"></script>
   <script src="script.js"></script>
+  <script src="design.js"></script>
 </body>
 </html>
